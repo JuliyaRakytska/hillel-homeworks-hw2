@@ -4,17 +4,17 @@ let operator = check ('Что нужно с ним с делать: +, -, *, / ?
 let b = check ('Введите второе число');
 let result = null;
 
+// проверка, что поле не пустое и ввод не отменен
 function check (arg) {
     let data = prompt(arg)
     if (data == null ) {
         alert('Вы отменили ввод');
     } else if (!data) {
         alert ('Вы ничего не ввели');
-    }  else {
+    } else {
         return data;
     }
 };
-
 
 function isNumber(value) {
     return typeof value === 'number' && !isNaN(parseFloat(value)) && isFinite(parseFloat(value))
@@ -47,4 +47,4 @@ switch (operator) {
     }
 };
 
-alert (`Итого: ${result}`);
+alert ( isNumber(result) ? `Итого: ${result}` : 'Error');
