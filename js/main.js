@@ -38,4 +38,4 @@ if (a == null || !isNumber(+a) || !a) {
     };
 };
 
-alert ( isNumber(result) ? `Итого: ${result}` : 'Error');
+alert (`Итого: ${result}`);
