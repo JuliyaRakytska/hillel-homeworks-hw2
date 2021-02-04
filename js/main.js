@@ -1,50 +1,41 @@
 
-let a = check ('Введите первое число');
-let operator = check ('Что нужно с ним с делать: +, -, *, / ?');
-let b = check ('Введите второе число');
+let a = prompt('Введите первое число');
+let operator = prompt ('Что нужно с ним с делать: +, -, *, / ?');
+let b = prompt ('Введите второе число');
 let result = null;
-
-// проверка, что поле не пустое и ввод не отменен
-function check (arg) {
-    let data = prompt(arg)
-    if (data == null ) {
-        alert('Вы отменили ввод');
-    } else if (!data) {
-        alert ('Вы ничего не ввели');
-    } else {
-        return data;
-    }
-};
 
 function isNumber(value) {
     return typeof value === 'number' && !isNaN(parseFloat(value)) && isFinite(parseFloat(value))
 };
 
-
-switch (operator) {
-    case '+': {
-        result = isNumber( +a) && isNumber (+b) ? +a + +b:
-        alert ('Вы ввели не числовое значение!');
-    }
-    break;
-    case '-': {
-        result = isNumber( +a) && isNumber (+b) ? a - b:
-        alert ('Вы ввели не числовое значение!')
-    }
-    break;
-    case '*': {
-        result = isNumber( +a) && isNumber (+b) ? a * b:
-        alert ('Вы ввели не числовое значение!')
-    }
-    break;
-    case '/': {
-        result = isNumber( +a) && isNumber (+b) ? a / b:
-        alert ('Вы ввели не числовое значение!')
-    }
-    break;
-    default: {
-        alert ('Не верная операция')
-    }
+if (a == null || !isNumber(+a) || !a) {
+    alert ('Error');
+} else if (operator == null || !operator) {
+    alert ('Error');
+} else if ( b == null || !isNumber(+b) || !b) {
+    alert ('Error');
+} else {
+    switch (operator) {
+        case '+': {
+            result = +a + +b;
+        }
+        break;
+        case '-': {
+            result = a - b;
+        }
+        break;
+        case '*': {
+            result = a * b;
+        }
+        break;
+        case '/': {
+            result = a / b;
+        }
+        break;
+        default: {
+            alert ('Не верная операция')
+        }
+    };
 };
 
 alert ( isNumber(result) ? `Итого: ${result}` : 'Error');
